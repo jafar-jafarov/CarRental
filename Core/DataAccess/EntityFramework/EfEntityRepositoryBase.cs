@@ -49,6 +49,7 @@ namespace DataAccess.Concrete.EntityFramework
                     ? context.Set<TEntity>().ToList() //Filtre null ise bu isleyecek
                     : context.Set<TEntity>().Where(filter).ToList(); //Filtre varsa bu isleyecek.
             }
+         
         }
 
         public void Update(TEntity entity)

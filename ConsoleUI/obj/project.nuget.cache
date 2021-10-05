@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "d0Vwmm/UaCXYR5GljjXJiaJn4GKZPwxmIzfPVjrkgHQUfahsCt+ImLXuUXz2JSgdKdfzayQpS2vL+HRVxox9rA==",
+  "dgSpecHash": "NnIxkY4KH0wM/EKzvgxPWzb26j/K9Yp2pEfpNd+l0bbVA2ZuRfGcjDQVLEJ/EFy8O2KevaeVCjEVU2OAmKSmvA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Asus\\source\\repos\\CarRent\\ConsoleUI\\ConsoleUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\autofac\\6.2.0\\autofac.6.2.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.1.0\\autofac.extensions.dependencyinjection.7.1.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\autofac.extras.dynamicproxy\\6.0.0\\autofac.extras.dynamicproxy.6.0.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\fluentvalidation\\10.3.3\\fluentvalidation.10.3.3.nupkg.sha512",

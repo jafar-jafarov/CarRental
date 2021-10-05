@@ -54,3 +54,4 @@ C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\Autofac.Extens
 C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\Autofac.Extras.DynamicProxy.dll
 C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\Castle.Core.dll
 C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\FluentValidation.dll
