@@ -136,7 +136,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("OperationClaim");
+                    b.ToTable("OperationClaims");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Rental", b =>
@@ -216,7 +216,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserOperationClaim");
+                    b.ToTable("UserOperationClaims");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Car", b =>

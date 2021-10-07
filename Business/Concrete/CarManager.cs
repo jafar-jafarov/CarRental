@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.AutoFac;
 using Business.CCS;
 using Business.Constants;
 using Business.ValidatinRules.FluentValidation;
@@ -32,7 +33,7 @@ namespace Business.Concrete
         }
         //[Validate]
         //claim
-       // [SecuredOperation("car.add")]
+       [SecuredOperation("car.add,admin")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult AddCar(Car car)
         {
@@ -87,7 +88,7 @@ namespace Business.Concrete
         public IResult UpdateCar(Car car)
         {
             var result = _carDal.GetAll(p => p.ColorId == car.ColorId).Count;
-            if (result >= 1)
+            if (result >= 10)
             {
                 return new ErrorResult(Messages.CarCountError);
             }
@@ -98,7 +99,7 @@ namespace Business.Concrete
         private IResult CheckIfCarCountOfColorCorrect(int colorId)
         {
             var result = _carDal.GetAll(p => p.ColorId == colorId).Count;
-            if (result >= 1)
+            if (result >= 10)
             {
                 return new ErrorResult(Messages.CarCountError);
             }

@@ -64,3 +64,8 @@ C:\Users\Asus\source\repos\CarRent\ConsoleUI\bin\Debug\netcoreapp3.1\System.Diag
 C:\Users\Asus\source\repos\CarRent\ConsoleUI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\Asus\source\repos\CarRent\ConsoleUI\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
 C:\Users\Asus\source\repos\CarRent\ConsoleUI\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Asus\source\repos\CarRent\ConsoleUI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\Users\Asus\source\repos\CarRent\ConsoleUI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Asus\source\repos\CarRent\ConsoleUI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Asus\source\repos\CarRent\ConsoleUI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Asus\source\repos\CarRent\ConsoleUI\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll

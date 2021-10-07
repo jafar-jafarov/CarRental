@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[6.2.0, )"
             },
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.1.0, )"
+            },
             "Autofac.Extras.DynamicProxy": {
               "target": "Package",
               "version": "[6.0.0, )"
@@ -61,6 +65,10 @@
             "FluentValidation": {
               "target": "Package",
               "version": "[10.3.3, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -71,6 +79,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             }
           },
           "imports": [
@@ -144,6 +156,14 @@
               "target": "Package",
               "version": "[10.3.3, )"
             },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
               "version": "[5.0.10, )"
@@ -157,6 +177,10 @@
               "version": "[3.1.0, )"
             },
             "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.13.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[6.13.1, )"
             }
@@ -377,6 +401,10 @@
             "Autofac.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[7.1.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.12, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

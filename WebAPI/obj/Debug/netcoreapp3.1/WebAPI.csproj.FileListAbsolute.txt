@@ -60,3 +60,13 @@ C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.AspN
 C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
 C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Asus\source\repos\CarRent\WebAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
