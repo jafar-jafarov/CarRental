@@ -34,9 +34,9 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        public List<CarDetailDto> GetCarDetails(int carId)
-        {
-            throw new NotImplementedException();
-        }
+        //public List<CarDetailDto> GetCarDetails(int carId)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

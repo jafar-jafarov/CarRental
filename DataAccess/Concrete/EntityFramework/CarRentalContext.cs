@@ -12,21 +12,25 @@ namespace DataAccess.Concrete.EntityFramework
         {
             optionsBuilder.UseSqlServer(@"Server=DESKTOP-QC7CL3A;Database=CarRental;Trusted_Connection=true");
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Car>()
-                .HasOne(x => x.Color)
-                .WithMany(x => x.Cars)
-                .HasForeignKey(x => x.ColorId);
-            modelBuilder.Entity<Car>()
-              .HasOne(x => x.Brand)
-              .WithMany(x => x.Cars)
-              .HasForeignKey(x => x.BrandId);
-        }
+        //    modelBuilder.Entity<Car>()
+        //        .HasOne(x => x.Color)
+        //        .WithMany(x => x.Cars)
+        //        .HasForeignKey(x => x.ColorId);
+        //    modelBuilder.Entity<Car>()
+        //      .HasOne(x => x.Brand)
+        //      .WithMany(x => x.Cars)
+        //      .HasForeignKey(x => x.BrandId);
+        //}
         public DbSet<Car> Cars { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Color> Colors { get; set; }
+        public DbSet<Customer>Customers { get; set; }
+        public DbSet<User>Users { get; set; }
+        public DbSet<Rental> Rentals { get; set; }
+        public DbSet<CarImage> CarImages { get; set; }
     }
 }

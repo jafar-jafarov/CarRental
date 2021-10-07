@@ -16,5 +16,13 @@ namespace Business.Constants
 
         public static string CarId = "Item specific information";
         public static string MaintenanceTime = "Sistem guncellemede";
+        public static string CarCountError=" bir masinin 1 rengi ola biler";
+        public static string CarNameAlreadyExists="Eyni adli masin bazada var";
+        public static string BrandNameAlreadyExists="Marka limiti heddini asdigi ucun yeni marka elave etmek mumkun deyil";
+        public static string CarImageNotFound="Sekil tapilmadi";
+        public static string CarImageDeleted="Sekil silindi";
+        public static string CarImageUpdated="Sekil update edildi";
+        public static string CarImageLimitExceeded="Sekil limiti 5 ededdir";
+        public static string CarImageAdded="Tebrikler emeliyyat yerine yetirildi";
     }
 }

@@ -44,6 +44,9 @@ namespace DataAccess.Migrations
                     b.Property<int>("BrandId")
                         .HasColumnType("int");
 
+                    b.Property<string>("CarName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ColorId")
                         .HasColumnType("int");
 
@@ -63,6 +66,29 @@ namespace DataAccess.Migrations
                     b.HasIndex("ColorId");
 
                     b.ToTable("Cars");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.CarImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.ToTable("CarImages");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Color", b =>
@@ -95,9 +121,22 @@ namespace DataAccess.Migrations
 
                     b.HasKey("CustomerId");
 
-                    b.HasIndex("UserId");
+                    b.ToTable("Customers");
+                });
 
-                    b.ToTable("Customer");
+            modelBuilder.Entity("Entities.Concrete.OperationClaim", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OperationClaim");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Rental", b =>
@@ -125,7 +164,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Rental");
+                    b.ToTable("Rentals");
                 });
 
             modelBuilder.Entity("Entities.Concrete.User", b =>
@@ -144,12 +183,40 @@ namespace DataAccess.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.HasKey("UserId");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.UserOperationClaim", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("OperationClaimId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OperationClaimId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserOperationClaim");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Car", b =>
@@ -167,11 +234,11 @@ namespace DataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Entities.Concrete.Customer", b =>
+            modelBuilder.Entity("Entities.Concrete.CarImage", b =>
                 {
-                    b.HasOne("Entities.Concrete.User", "User")
-                        .WithMany("Customers")
-                        .HasForeignKey("UserId")
+                    b.HasOne("Entities.Concrete.Car", "Car")
+                        .WithMany("CarImages")
+                        .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -187,6 +254,21 @@ namespace DataAccess.Migrations
                     b.HasOne("Entities.Concrete.Customer", "Customer")
                         .WithMany("Rentals")
                         .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Entities.Concrete.UserOperationClaim", b =>
+                {
+                    b.HasOne("Entities.Concrete.OperationClaim", "OperationClaim")
+                        .WithMany("UserOperationClaims")
+                        .HasForeignKey("OperationClaimId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Concrete.User", "User")
+                        .WithMany("UserOperationClaims")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

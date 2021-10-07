@@ -11,7 +11,7 @@ namespace Entities.Concrete
         [Key]
         public int CustomerId { get; set; }
         public int UserId { get; set; }
-        public virtual User User { get; set; }
+       
         public ICollection<Rental> Rentals { get; set; }
         public string CompanyName { get; set; }
     }

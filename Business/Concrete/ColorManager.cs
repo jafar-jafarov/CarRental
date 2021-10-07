@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -16,7 +17,7 @@ namespace Business.Concrete
             _colordal = colordal;
         }
 
-        public void Add(Color color)
+        public IResult Add(Color color)
         {
             
 
@@ -24,26 +25,29 @@ namespace Business.Concrete
                 _colordal.Add(color);
             else
                 Console.WriteLine("Reng adi en azi 2 simvol olmalidir");
+            return new SuccessResult();
         }
 
-        public void Delete(Color color)
+        public IResult Delete(Color color)
         {
             _colordal.Delete(color);
+            return new SuccessResult();
         }
 
-        public List<Color> GetAll()
+        public IDataResult<List<Color>> GetAll()
         {
-            return _colordal.GetAll();
+            return new SuccessDataResult<List<Color>>(_colordal.GetAll());
         }
 
-        public List<Color> GetById(int id)
+        public IDataResult<List<Color>> GetById(int id)
         {
-            return _colordal.GetAll(x => x.ColorId == id);
+            return new SuccessDataResult<List<Color>>(_colordal.GetAll(x => x.ColorId == id));
         }
 
-        public void Update(Color color)
+        public IResult Update(Color color)
         {
             _colordal.Update(color);
+            return new SuccessResult();
         }
     }
 }

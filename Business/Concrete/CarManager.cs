@@ -1,8 +1,10 @@
 ﻿using Business.Abstract;
+using Business.CCS;
 using Business.Constants;
 using Business.ValidatinRules.FluentValidation;
 using Core.Aspects.AutoFac.Validation;
 using Core.CrossCuttingConcerns.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -11,6 +13,7 @@ using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -18,15 +21,28 @@ namespace Business.Concrete
     public class CarManager : ICarService
     {
         ICarDal _carDal;
+        IBrandService _brandService;
+       
 
-        public CarManager(ICarDal cardal)
+        public CarManager(ICarDal cardal,IBrandService brandService)
         {
             _carDal = cardal;
+            _brandService = brandService;
+       
         }
         //[Validate]
+        //claim
+       // [SecuredOperation("car.add")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult AddCar(Car car)
         {
+           IResult result=BusinessRules.Run(CheckIfCarCountOfColorCorrect(car.ColorId), CheckIfCarNameExsistsCorrect(car.CarName),CheckIfBrandLimitExceded());
+            if (result!=null)
+            {
+                return result;
+            }
+            _carDal.Add(car);
+            return new SuccessResult(Messages.CarAdded);
 
             //ValidationTool.Validate(new CarValidator(), car);
             //loglama
@@ -34,8 +50,7 @@ namespace Business.Concrete
             //performance
             //transac
             //business codes    
-            _carDal.Add(car);
-            return new SuccessResult(Messages.CarAdded);
+          
         }
 
         public IResult DeleteCar(Car car)
@@ -68,11 +83,43 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(),"Tebrikler ehsen");
         }
-
+        [ValidationAspect(typeof(CarValidator))]
         public IResult UpdateCar(Car car)
         {
-           
+            var result = _carDal.GetAll(p => p.ColorId == car.ColorId).Count;
+            if (result >= 1)
+            {
+                return new ErrorResult(Messages.CarCountError);
+            }
+
             _carDal.Update(car);
+            return new SuccessResult();
+        }
+        private IResult CheckIfCarCountOfColorCorrect(int colorId)
+        {
+            var result = _carDal.GetAll(p => p.ColorId == colorId).Count;
+            if (result >= 1)
+            {
+                return new ErrorResult(Messages.CarCountError);
+            }
+            return new SuccessResult();
+        }
+        private IResult CheckIfCarNameExsistsCorrect(string carName)
+        {
+            var result = _carDal.GetAll(p => p.CarName == carName).Any();
+            if (result ==true)
+            {
+                return new ErrorResult(Messages.CarNameAlreadyExists);
+            }
+            return new SuccessResult();
+        }
+        private IResult CheckIfBrandLimitExceded()
+        {
+            var result = _brandService.GetAll();
+            if (result.Data.Count>15)
+            {
+                return new ErrorResult(Messages.BrandNameAlreadyExists);
+            }
             return new SuccessResult();
         }
     }
